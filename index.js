@@ -15,8 +15,7 @@ app.get('/', function(req, res, next){
 });
 
 io.on('connection', function(socket){
-    this.sockets = socket;
-    console.log(sockets);
+    sockets.push(socket);
 });
 
 server.listen(port, function(){
