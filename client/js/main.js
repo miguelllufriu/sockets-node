@@ -1,4 +1,6 @@
 const socket = io();
-const test = 2;
 
-socket.emit('newsocket', test);
+socket.on("hiFromServer", function(data){
+    let _usernameId = document.getElementById('userId');
+    _usernameId.innerHTML = data;
+});
