@@ -17,7 +17,10 @@ app.get('/', function(req, res, next){
 io.on('connection', function(socket){
     console.log('New connection');
     sockets.push(socket);
-    socket.emit("hiFromServer", socket.id);
+    let users = [];
+    for(i in sockets) users.push(sockets[i].id);
+    io.emit("updateUsersData", { users });
+    console.log(sockets)
 });
 
 server.listen(port, function(){
